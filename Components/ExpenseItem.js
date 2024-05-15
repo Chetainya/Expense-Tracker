@@ -1,17 +1,22 @@
-import { StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 import { GlobalStyles } from "../Constants/Style"
+import { dateFormatter } from "../utils/date"
 
 function ExpenseItem({description , amount , date}){
-    return <View style={styles.container}>
+    return (
+    <Pressable style={({pressed}) => pressed && styles.pressed}>
+    <View style={styles.container}>
         <View>
         <Text style={styles.description}>{description}</Text>
-        <Text style={styles.date}>{`${date}`}</Text>
+        <Text style={styles.date}>{dateFormatter(date)}</Text>
 
         </View>
         <View style={styles.amountContainer}>
             <Text style={styles.amount}>{amount}Rs</Text>
         </View>
     </View>
+    </Pressable>
+    )
 }
 export default ExpenseItem
 
@@ -47,5 +52,8 @@ const styles = StyleSheet.create({
     amountContainer : {
         backgroundColor : 'white',
         borderRadius : 10
+    },
+    pressed : {
+        opacity : 0.50
     }
 })

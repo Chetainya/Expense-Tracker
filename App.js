@@ -9,6 +9,7 @@ import ManageExpense from './Screens/ManageExpense';
 import { GlobalStyles } from './Constants/Style';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import IconButton from './UI/IconButton';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -33,7 +34,7 @@ function ExpensesOverview(){
     tabBarInactiveTintColor : GlobalStyles.colors.gray700,
     tabBarActiveTintColor : GlobalStyles.colors.accent500,
     // tabBarInactiveBackgroundColor : GlobalStyles.colors.primary50,
-    
+    headerRight : ({tintColor}) => <IconButton name="pluscircleo" size={24} color={tintColor} onPress={() => {}} />
     
   }}
   >
