@@ -10,6 +10,7 @@ import { GlobalStyles } from './Constants/Style';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import IconButton from './UI/IconButton';
+import ExpenseContextProvider from './Store/ExpenseContext';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -58,7 +59,7 @@ function ExpensesOverview(){
 
 export default function App() {
   return (
-    <>
+    <ExpenseContextProvider>
     <StatusBar styles='auto' />
     <NavigationContainer>
       <Stack.Navigator>
@@ -70,7 +71,7 @@ export default function App() {
         }} component={ManageExpense} />
       </Stack.Navigator>
     </NavigationContainer>
-    </>
+    </ExpenseContextProvider>
   );
 }
 

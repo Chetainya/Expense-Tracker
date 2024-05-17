@@ -1,40 +1,17 @@
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, View , Text } from "react-native"
 import ExpenseSummary from "./ExpenseSummary"
 import ExpenseList from "./ExpenseList"
 import { GlobalStyles } from "../Constants/Style"
 
-const DUMMY_DATA = [ {
-    id : 'e1',
-    amount : '100',
-    description : 'Hello This an expense',
-    Date : new Date('2024-12-9')
-},
-{
-    id : 'e2',
-    amount : '100',
-    description : 'Hello This an expense',
-    Date : new Date('2024-12-9')
-},
-{
-    id : 'e3',
-    amount : '100',
-    description : 'Hello This an expense',
-    Date : new Date('2024-12-9')
-},
-{
-    id : 'e4',
-    amount : '100',
-    description : 'Hello This an expense',
-    Date : new Date('2024-12-9')
-},
 
-]
 
-function ExpenseOutput({expenses , expensesPeriod}){
+function ExpenseOutput({expenses , expensesPeriod , fallBack}){
+    
 
     return <View style={styles.container}>
-        <ExpenseSummary expenses={DUMMY_DATA} expensesPeriod='Last 7 days' />
-        <ExpenseList expenses={DUMMY_DATA} />
+        <ExpenseSummary expenses={expenses} expensesPeriod='Last 7 days' />
+        {expenses.length > 0 ? <ExpenseList expenses={expenses} /> : <Text style={styles.fallBack}>{fallBack}</Text>}
+        
     </View>
 }
 export default ExpenseOutput
@@ -44,5 +21,9 @@ const styles = StyleSheet.create({
         flex : 1,
         backgroundColor : GlobalStyles.colors.primary100,
         padding : 12
+    },
+    fallBack : {
+        textAlign : 'center',
+        margin : 15
     }
 })
