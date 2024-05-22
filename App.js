@@ -18,6 +18,7 @@ const Stack = createNativeStackNavigator();
 
 function ExpensesOverview(){
   return <BottomTab.Navigator 
+  initialRouteName='RecentExpenses'
   screenOptions={({navigation}) => ({
     title : 'All Expenses',
    
