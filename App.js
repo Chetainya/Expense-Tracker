@@ -49,6 +49,7 @@ function ExpensesOverview(){
 
     }} />
     <BottomTab.Screen name='RecentExpenses' component={RecentExpenses} options={{
+      title : 'Recent Expenses',
       tabBarLabel : 'Recent',
       tabBarLabelStyle : {
         fontWeight : 'bold'
